@@ -5,7 +5,7 @@ import Button from "./Button"
 
 const Navbar = () => {
   return (
-    <nav className="flexBetween max-container padding-container relative z-30 py-5 bg-[#192936]">
+    <nav className="fixed flexBetween w-full padding-container  z-30 py-5 bg-[#081e30]">
       <Link href="/">
         <Image src="/seed.png" alt="logo" width={74} height={29} />
       </Link>

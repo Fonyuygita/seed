@@ -1,90 +1,87 @@
-import Image from 'next/image'
-import Button from './Button'
+"use client"
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Handle from './handle';
+import HeroButtons from './hero-buttons';
+import {motion} from "framer-motion"
 
-const Hero = () => {
+const text="Unlock Your Potential"
+const HeroSection = () => {
+  const [backgroundIndex, setBackgroundIndex] = useState(0);
+  const backgrounds = [
+    '/heroImage.png',
+    '/heroImage.png',
+    '/heroImage.png',
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBackgroundIndex((prevIndex) =>
+        prevIndex === backgrounds.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="relative max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
-      <div className="hero-map bg-black md:bg-white"  />
-
-      <div className="relative z-20 flex flex-1 flex-col h-full xl:w-1/2 my-12 padding-">
-      
-
-    <Image className=" h-full w-full object-cover 8 md:hidden" src="/heroImage.png" alt="Random image" fill />
-    <div className="absolute inset-0 bg-black opacity-60 rounded-md md:hidden"></div>
-    <div className="absolute w-full h-full inset-0 flex items-center justify-center flex-col gap-5 ">
-        {/* <h2 className="text-white text-3xl font-bold">Get Lost in Mountains</h2> */}
-        <h1 className="bold text-1xl lg:text-4xl font-bold  text-white w-[60%] mx-auto">Skills Empowerment and Empowerment</h1>
-
-        <Button 
-            type="button" 
-            title="About Us" 
-            variant="btn_green" 
+    <section className="relative ">
+      <div className="flex w-full h-[100vh] items-center justify-between  ">
+   
+     
+      <div className="relative w-full h-full">
+        <div className="absolute inset-0">
+          <Image
+            src={backgrounds[backgroundIndex]}
+            alt="Background Image"
+            layout="fill"
+            objectFit="cover"
           />
-    </div>
-
-    <div className="flex  w-full gap-3 sm:flex-row">
-          
-          <Button 
-            type="button" 
-            title="How we work?" 
-            icon="/play.svg"
-            variant="btn_white_text" 
-          />
+          <div
+            className="absolute inset-0 bg-black opacity-50"
+            aria-hidden="true"
+          ></div>
         </div>
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#13163f] to-[#0c345ca9] opacity-75 h-[100vh]"></div>
+          <div className="relative px-8 py-12 text-white ]">
+            <div className="max-w-3xl mx-auto  flex items-center gap-8 justify-center flex-col mt-[9rem]">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">
+              {text.split("").map((letter, index) => (
+            <motion.span
+              key={index}
+              className=""
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 0 }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                delay: index * 0.1,
+              }}
+            >
+              {letter}
+            </motion.span>
+          ))}
 
-
-        {/*
-        <p className="regular-16 mt-6 text-gray-30 xl:max-w-[520px]">
-          We want to be on each of your journeys seeking the satisfaction of seeing the incorruptible beauty of nature. We can help you on an adventure around the world in just one app
-        </p> */}
-
-        <div className="my-11 flex flex-wrap gap-5">
-          <div className="flex items-center gap-2">
-            {Array(5).fill(1).map((_, index) => (
-              <Image 
-                src="/star.svg"
-                key={index}
-                alt="star"
-                width={24}
-                height={24}
-              />
-            ))}
+              </h2>
+              <p className="text-lg">
+                We empower businesses with innovative software solutions that drive growth and success.
+              </p>
+              <HeroButtons/>
+            </div>
           </div>
-
-          <p className="bold-16 lg:bold-20 text-blue-70">
-            198k
-            <span className="regular-16 lg:regular-20 ml-1">Excellent Reviews</span>
-          </p>
         </div>
-
-       
       </div>
 
-      <div className="absolute bottom-[-75px] md:relative flex flex-1 items-start">
-        <div className="relative z-20 flex w-[268px] flex-col gap-8 rounded-3xl bg-[#db8611] px-7 py-8  border-t-4 border-[#192936]">
+      </div>
+      <div className="flex flex-col md:flex-row items-center justify-center gap-6 absolute top-[66%] left-[15%] md:left-[10%]">
+      <Handle/>
+      <Handle/>
+      <Handle/>
 
-           <div className="flex flex-col">
-            <div className="flexBetween">
-              <p className="regular-16 text-gray-20">Location</p>
-              <Image src="/close.svg" alt="close" width={24} height={24} />
-            </div>
-            <p className="bold-20 text-white">Cameroon-Bamenda</p>
-          </div>
-
-          <div className="flexBetween">
-            <div className="flex flex-col">
-              <p className="regular-16 block text-gray-20">Distance</p>
-              <p className="bold-20 text-white">173.28 mi</p>
-            </div>
-            <div className="flex flex-col">
-              <p className="regular-16 block text-gray-20">Elevation</p>
-              <p className="bold-20 text-white">2.040 km</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default HeroSection;
