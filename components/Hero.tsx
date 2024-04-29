@@ -64,7 +64,7 @@ const HeroSection = () => {
           ))}
 
               </h2>
-              <p className="text-lg">
+              <p className="text-lg text-center">
                 We empower businesses with innovative software solutions that drive growth and success.
               </p>
               <HeroButtons/>
@@ -74,10 +74,14 @@ const HeroSection = () => {
       </div>
 
       </div>
-      <div className="flex flex-col md:flex-row items-center justify-center gap-6 absolute top-[66%] left-[15%] md:left-[10%]">
-      <Handle/>
-      <Handle/>
-      <Handle/>
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-6 absolute top-[66%] left-[15%] mx-auto md:left-[10%]">
+      <Handle name='Seed' address='Bamenda' how_many='234' vision='To train young techies' background='bg-[#213ee08e]'/>
+
+      <Handle name='Seed' address='Bamenda' how_many='234' vision='To train young techies' background='bg-[#1008318a] hidden lg:flex'/>
+
+
+      <Handle name='Seed' address='Bamenda' how_many='234' vision='To train young techies' background='bg-[#ccc924a1] hidden lg:flex'/>
+      
 
       </div>
     </section>
