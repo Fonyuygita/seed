@@ -13,7 +13,7 @@ interface handleProps {
 const Handle = ({name, address, how_many, vision, background}:handleProps) => {
   return (
     <div className="">
-    <div className={`relative z-20 flex w-[268px] flex-col gap-8 rounded-3xl ${background} px-7 py-8  border-t-4 border-[#192936] md:w-[400px]`}>
+    <div className={`relative  flex w-[268px] flex-col gap-8 rounded-3xl ${background} px-7 py-8  border-t-4 border-[#192936] md:w-[400px]`}>
 
        <div className="flex flex-col">
         <div className="flexBetween">
