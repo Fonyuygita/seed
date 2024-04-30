@@ -82,7 +82,7 @@ const HeroSection = () => {
       <Handle name='Seed' address='Bamenda' how_many='234' vision='To train young techies' background='bg-[#1008318a] hidden lg:flex'/>
 
 
-      <Handle name='Seed' address='Bamenda' how_many='234' vision='To train young techies' background='bg-[#ccc924a1] hidden lg:flex'/>
+      <Handle name='Seed' address='Bamenda' how_many='234' vision='To train young techies' background='bg-[#eb8c086c]  hidden lg:flex'/>
       
 
       </div>

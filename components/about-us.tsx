@@ -15,7 +15,7 @@ const AboutSection = () => {
         const rect = aboutSection.getBoundingClientRect();
         const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
         if (isVisible) {
-        //   router.replace(router.asPath, undefined, { scroll: false });
+          // router.replace(router.refresh, undefined, { scroll: false as boolean });
         }
       }
     };
@@ -31,12 +31,14 @@ const AboutSection = () => {
     <section className='h-screen w-screen px-4  text-white flex flex-col items-center justify-center' id='about'>
     <div id="aboutSection" className="flex flex-col md:flex-row items-center justify-center md:justify-between">
       <motion.div
-        className="md:w-1/2 h-full p-4  bg-[#ecbb3342] flex items-start justify-center flex-col gap-6"
-        initial={{ opacity: 0, x: -100 }}
+        className="md:w-1/2 h-full p-4   flex items-start justify-center flex-col gap-6"
+        initial={{ opacity: 0, x: -100, y:12 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1 }}
+  
+       
       >
-        <h2 className="text-3xl font-bold mb-4">About Us</h2>
+        <h2 className="text-2xl lg:text-5xl font-bold mb-4 text-[#1b08088e] text-bold">About Us</h2>
         <p className="text-lg text-gray-600">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu nisi ac nunc ultricies aliquam. Nullam at dapibus mi. Nulla facilisi. Nulla fermentum, leo vel placerat aliquam, velit purus congue nisl, vitae tristique magna magna vel ex.
         </p>
@@ -48,10 +50,10 @@ const AboutSection = () => {
         className="md:w-1/2 p-4"
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1.1 }}
       >
-        <div className="max-w-sm mx-auto bg-feature-bg bg-center bg-no-repeat">
-          <Image src="/phones.png" alt="About Image" width={500} height={300} />
+        <div className="max-w-lg mx-auto bg-feature-bg bg-center bg-no-repeat">
+          <Image src="/about5.png" alt="About Image" width={650} height={500} />
         </div>
       </motion.div>
     </div>
