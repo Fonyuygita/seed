@@ -11,8 +11,9 @@ const HeroSection = () => {
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const backgrounds = [
     '/heroImage.png',
-    '/heroImage.png',
-    '/heroImage.png',
+    '/about1.png',
+  '/about3.png',
+  '/about2.png',
   ];
 
   useEffect(() => {

@@ -5,6 +5,7 @@ import Guide from "@/components/Guide";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/about-us";
 import Footer from "@/components/footer-stick";
+import Quiz from "@/components/quiz";
 import ServicesSection from "@/components/service";
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
       {/* <Camp />
       <Guide />
       <Features /> */}
-
+<Quiz/>
       <AboutSection/>
       <ServicesSection/>
       

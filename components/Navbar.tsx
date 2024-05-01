@@ -2,10 +2,10 @@ import { NAV_LINKS } from "@/constants"
 import Image from "next/image"
 import Link from "next/link"
 import Button from "./Button"
-
+// #20193d9f
 const Navbar = () => {
   return (
-    <nav className="fixed flexBetween w-full padding-container  z-30 py-5 bg-[#20193d9f]">
+    <nav className="fixed flexBetween w-full padding-container  z-30 py-5  bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#535ab8e3] to-[#100735f8] ">
       <Link href="/">
         <Image src="/seed.png" alt="logo" width={74} height={29} />
       </Link>
