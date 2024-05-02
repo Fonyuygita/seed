@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 
 @tailwind base;
 @tailwind components;
@@ -12,7 +14,6 @@
 
 body {
   font-family: Inter;
-  scroll-behavior: smooth;
 }
 
 @layer utilities {
@@ -23,10 +24,10 @@ body {
     @apply  border-white bg-white px-8 py-3 text-gray-90
   }
   .btn_green  { 
-    @apply  border-green-50 bg-[#db8611] px-2 py-2 text-white
+    @apply  border-green-50 bg-green-50 px-8 py-5 text-white
   }
   .btn_dark_green { 
-    @apply  bg-[#eb8c086c] px-8 py-4 text-white transition-all hover:bg-black
+    @apply  bg-green-90 px-8 py-4 text-white transition-all hover:bg-black
   }
   .btn_dark_green_outline  { 
     @apply border-gray-20 bg-green-90 px-8 py-5 text-white
@@ -142,7 +143,7 @@ body {
 
   /* Get App */
   .get-app {
-    @apply max-container relative flex w-full  flex-col justify-between gap-32 overflow-hidden bg-[#e22242]  bg-pattern bg-cover bg-center bg-no-repeat px-6 py-12 text-black sm:flex-row sm:gap-12 sm:py-24 lg:px-20 xl:max-h-[598px] 2xl:rounded-5xl;
+   
   }
 }
 

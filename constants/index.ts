@@ -9,7 +9,7 @@ export const NAV_LINKS = [
 
 // CAMP SECTION
 export const PEOPLE_URL = [
-  '/about1.png',
+  '/person-1.png',
   '/about1.png',
   '/about3.png',
   '/about2.png',
