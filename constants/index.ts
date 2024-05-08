@@ -1,10 +1,10 @@
 // NAVIGATION
 export const NAV_LINKS = [
   { href: '/', key: 'home', label: 'Home' },
-  { href: '/', key: 'how_seed_work', label: 'How Seed Work?' },
-  { href: '/', key: 'services', label: 'Services' },
-  { href: '/', key: 'pricing ', label: 'Pricing ' },
-  { href: '/', key: 'contact_us', label: 'Contact Us' },
+  { href: '/mission', key: 'mission', label: 'mission' },
+  { href: '/service', key: 'services', label: 'Services' },
+  { href: '/login', key: 'login', label: 'login' },
+  { href: '/contact_us', key: 'contact_us', label: 'Contact Us' },
 ];
 
 // CAMP SECTION

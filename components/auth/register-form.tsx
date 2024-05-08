@@ -101,7 +101,9 @@ import { FormSuccess } from "./form-success";
                       type="email"
                     />
                   </FormControl>
+                  <div className="text-red-500">
                   <FormMessage />
+                  </div>
                 </FormItem>
               )}
             />
@@ -123,7 +125,9 @@ import { FormSuccess } from "./form-success";
                       type="password"
                     />
                   </FormControl>
+                  <div className="text-red-500">
                   <FormMessage />
+                  </div>
                 </FormItem>
               )}
             />

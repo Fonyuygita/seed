@@ -8,6 +8,7 @@ import AboutSection from "@/components/about-us";
 import Footer from "@/components/footer-stick";
 import Quiz from "@/components/quiz";
 import ServicesSection from "@/components/service";
+import TeamSection from "@/components/team";
 
 export default function Home() {
   return (
@@ -16,8 +17,9 @@ export default function Home() {
       {/* <Camp />
       <Guide />
       <Features /> */}
-<Quiz/>
+
       <AboutSection/>
+      <TeamSection/>
       <ServicesSection/>
       
       {/* <GetApp /> */}

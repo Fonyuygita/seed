@@ -23,9 +23,9 @@ const Handle = ({name, address, how_many, vision, background}:handleProps) => {
         <p className="bold-20 text-white">{address}</p>
       </div>
 
-      <div className="flexBetween">
+      <div className="flex-col md:flexBetween">
         <div className="flex flex-col">
-          <p className="regular-16 block text-gray-20">about</p>
+          <p className="text-sm regular-16 block text-gray-20">about</p>
           <p className="bold-20 text-white">{how_many}</p>
         </div>
         <div className="flex flex-col">

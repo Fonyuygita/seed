@@ -28,7 +28,7 @@ const AboutSection = () => {
   }, [router]);
 
   return (
-    <section className='h-screen w-screen px-4  text-white flex flex-col items-center justify-center' id='about'>
+    <section className='h-screen w-screen px-4  text-white flex flex-col items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ced4de] to-[#ac690d]'  id='about'>
     <div id="aboutSection" className="flex flex-col md:flex-row items-center justify-center md:justify-between">
       <motion.div
         className="md:w-1/2 h-full p-4   flex items-start justify-center flex-col gap-6"
@@ -52,8 +52,8 @@ const AboutSection = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.1 }}
       >
-        <div className="max-w-lg mx-auto bg-feature-bg bg-center bg-no-repeat">
-          <Image src="/about5.png" alt="About Image" width={650} height={500} />
+        <div className="max-w-lg mx-auto bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ced4de] to-[#ac690d] rounded-full">
+          <Image src="/abt.png" alt="About Image" width={650} height={500} />
         </div>
       </motion.div>
     </div>
