@@ -1,150 +1,64 @@
-"use client";
+"use client"
+// pages/index.tsx in Next.js
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { useState } from 'react';
 
-import { z } from "zod";
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  FormControl,
-  Form,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "../ui/form";
-import { CardWrapper } from "./card-wrapper";
-import { LoginSchemas, RegisterSchema } from "@/schemas";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-// import { FormError } from "../form-error";
-// import { FormSuccess } from "../form-success";
-// import { login } from "@/actions/login";
-import { useState, useTransition } from "react";
-import { FormError } from "./form-error";
-import { FormSuccess } from "./form-success";
-// import { register } from "@/actions/register";
+const containerVariants = {
+  hidden: { y: '-100vh' },
+  visible: { y: 0, transition: { type: 'spring', stiffness: 120 } },
+};
 
- const RegisterForm = () => {
-  // setting up our pending state
-  const [error, setError] = useState<string | undefined>("");
-  const [success, setSuccess] = useState<string | undefined>("");
-
-  const [isPending, startTransition] = useTransition();
-  const form = useForm<z.infer<typeof RegisterSchema>>({
-    resolver: zodResolver(RegisterSchema),
-    defaultValues: {
-      email: "",
-      password: "",
-      name: "",
-    },
-  });
-
-  //  GET OUR INPUTS VALUES
-  const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
-    // after submitting we want to go ahead and clear all errors and all success
-    setError("");
-    setSuccess("");
-
-    startTransition(() => {
-    //   register(values).then((data) => {
-    //     setError(data.error);
-    //     setSuccess(data.success);
-    //   });
-    });
-  };
+const RegisterForm= () => {
+  const [isLogin, setIsLogin] = useState(false);
 
   return (
-    <CardWrapper
-      headerLabel="Register an have a CH account"
-      backButtonLabel="Already have an account?"
-      backButtonHref="/auth/login"
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="flex flex-col items-center justify-center min-h-screen "
     >
-      {/* login form goes here, but first, we have to create a form schema */}
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 t">
-          <div className="space-y-4">
-            {/* start of name field */}
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      disabled={isPending}
-                      placeholder="fonyuy gita"
-                      type="name"
-                    />
-                  </FormControl>
-                  <div className="text-red-500">
-                  <FormMessage />
-                  </div>
-                </FormItem>
-              )}
+      <div className="bg-white p-6 rounded shadow-md">
+        <div className="flex items-center justify-center bg-black p-2 w-14 h-14 rounded-full">
+      <Image src="/seed.png" alt="Company Logo" width={40} height={40}   />
+      </div>
+        <h2 className="text-lg font-bold mb-4">{isLogin ? 'Login' : 'Register'}</h2>
+        <form className="flex flex-col space-y-4">
+          {!isLogin && (
+            <input
+              type="text"
+              placeholder="Name"
+              className="border p-2 rounded"
             />
-            {/* end of name field */}
-
-            {/*  EMAIL FIELD */}
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      disabled={isPending}
-                      placeholder="fonyuygita@gmail.com"
-                      type="email"
-                    />
-                  </FormControl>
-                  <div className="text-red-500">
-                  <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-            {/*  END OF EMAIL FIELD */}
-
-            {/*  PASSWORD FIELD */}
-
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      disabled={isPending}
-                      placeholder="**************"
-                      type="password"
-                    />
-                  </FormControl>
-                  <div className="text-red-500">
-                  <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-
-            {/*  END OF PASSWORD FORM FIELD */}
-          </div>
-
-          <FormError message={error!} />
-          <FormSuccess message={success!} />
-
-          <Button disabled={isPending} type="submit" className="w-full">
-            Register
-          </Button>
+          )}
+          <input
+            type="email"
+            placeholder="Email"
+            className="border p-2 rounded"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="border p-2 rounded"
+          />
+          <button
+            type="submit"
+            className="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#535ab8e3] to-[#100735f8] text-white p-2 rounded"
+          >
+            {isLogin ? 'Login' : 'Register'}
+          </button>
         </form>
-      </Form>
-    </CardWrapper>
+        <button
+          onClick={() => setIsLogin(!isLogin)}
+          className="text-blue-500 mt-4"
+        >
+          {isLogin ? 'Need an account? Register' : 'Have an account? Login'}
+        </button>
+      </div>
+    </motion.div>
   );
 };
 
-export default RegisterForm
+export default RegisterForm;

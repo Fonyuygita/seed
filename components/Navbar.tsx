@@ -30,7 +30,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu content */}
-      <div className={`absolute top-full left-0 w-full bg-[#100735f8] transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:hidden`}>
+      <div className={`absolute top-full left-0 w-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#535ab8e3] to-[#100735f8] transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:hidden`}>
         <ul className="flex flex-col items-center gap-6 p-5">
           {NAV_LINKS.map((link) => (
             

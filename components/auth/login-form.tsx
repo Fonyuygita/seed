@@ -1,128 +1,64 @@
 "use client"
-
-import { z } from "zod"
-
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { FormControl, Form, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
-import { CardWrapper } from "./card-wrapper"
-import { LoginSchemas } from "@/schemas"
-import { Input } from "../ui/input"
-import { Button } from "../ui/button"
-import { useState, useTransition } from "react"
-import { useSearchParams } from "next/navigation"
-import Link from "next/link"
-import { FormSuccess } from "./form-success"
-import { FormError } from "./form-error"
+// pages/index.tsx in Next.js
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { useState } from 'react';
 
 
+const containerVariants = {
+  hidden: { y: '-100vh' },
+  visible: { y: 0, transition: { type: 'spring', stiffness: 120 } },
+};
 
-export const LoginForm = () => {
+const LoginPage = () => {
+  const [isLogin, setIsLogin] = useState(false);
 
-    const searchParams=useSearchParams();
-    const urlError=searchParams.get("error") === "OAuthAccountNotLinked" ? "You can logged in with this email" : ""
-    console.log(urlError)
-    // setting up our pending state
-    const [error, setError]=useState<string | undefined>('')
-    const [success, setSuccess]=useState<string | undefined>('')
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="flex flex-col items-center justify-center min-h-screen "
+    >
+      <div className="bg-white p-6 rounded shadow-md">
+        <div className="flex items-center justify-center bg-black p-2 w-14 h-14 rounded-full">
+      <Image src="/seed.png" alt="Company Logo" width={40} height={40}   />
+      </div>
+        <h2 className="text-lg font-bold mb-4">{isLogin ? 'Login' : 'Register'}</h2>
+        <form className="flex flex-col space-y-4">
+          {!isLogin && (
+            <input
+              type="text"
+              placeholder="Name"
+              className="border p-2 rounded"
+            />
+          )}
+          <input
+            type="email"
+            placeholder="Email"
+            className="border p-2 rounded"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="border p-2 rounded"
+          />
+          <button
+            type="submit"
+            className="bg-blue-500 text-white p-2 rounded"
+          >
+            {isLogin ? 'Login' : 'Register'}
+          </button>
+        </form>
+        <button
+          onClick={() => setIsLogin(!isLogin)}
+          className="text-blue-500 mt-4"
+        >
+          {isLogin ? 'Need an account? Register' : 'Have an account? Login'}
+        </button>
+      </div>
+    </motion.div>
+  );
+};
 
-    const [isPending, startTransition]=useTransition()
-    const form = useForm<z.infer<typeof LoginSchemas>>({
-        resolver: zodResolver(LoginSchemas),
-        defaultValues: {
-            email: "",
-            password: "",
-        }
-    })
-
-    //  GET OUR INPUTS VALUES
-    const onSubmit = (values: z.infer<typeof LoginSchemas>) => {
-// after submitting we want to go ahead and clear all errors and all success
-setError("")
-setSuccess("")
-
-
-    //     startTransition(()=>{
-    //         login(values)
-    //         .then((data)=>{
-    //             setError(data?.error);
-    //                 //TODO : Add when we add  2FA
-    //             setSuccess(data?.success)
-    //         })
-    //     })
-    }
-
-    return (
-        <CardWrapper headerLabel="We;come to CH" backButtonLabel="Dont, have an account?" backButtonHref="/auth/register" showSocial>
-     
-            {/* login form goes here, but first, we have to create a form schema */}
-            <Form {...form}>
-                <form
-                    onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-6"
-                >
-                    <div className="space-y-4">
-
-                        {/*  EMAIL FIELD */}
-                        <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Email</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            {...field}
-                                        disabled={isPending}
-                                            placeholder="fonyuygita@gmail.com"
-                                            type="email"
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        {/*  END OF EMAIL FIELD */}
-
-                        {/*  PASSWORD FIELD */}
-
-                        <FormField
-                            control={form.control}
-                            name="password"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Password</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            {...field}
-                                            disabled={isPending}
-                                            placeholder="**************"
-                                            type="password"
-                                        />
-                                    </FormControl>
-                                    <Button variant="link" asChild>
-                                        <Link href="/auth/reset-password" className="my-3 text-bold">Forgot password</Link>
-                                    </Button>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-
-                        {/*  END OF PASSWORD FORM FIELD */}
-
-                    </div>
-                    <FormError message={error! || urlError} />
-                    <FormSuccess message={success!} />
-
-                    <Button
-                    disabled={isPending}
-                        type="submit"
-                        className="w-full"
-                    >
-                        Login
-                    </Button>
-                </form>
-            </Form>
-        </CardWrapper>
-    )
-}
+export default LoginPage;

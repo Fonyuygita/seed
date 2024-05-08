@@ -78,13 +78,13 @@ const HeroSection = () => {
 
       </div>
       <div className="flex flex-col lg:flex-row items-center justify-center gap-6 absolute top-[60%] left-[15%] mx-auto md:left-[10%]">
-      <Handle name='Seed' address='Bamenda' how_many='234' vision='To train young techies' background='bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ced4de] to-[#ac690d] md:bg-[#213ee08e]'/>
+      {/* <Handle name='Seed' address='Bamenda' how_many='234' vision='To train young techies' background='bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ced4de] to-[#ac690d] md:bg-[#213ee08e]'/>
 
       <Handle name='Seed' address='Bamenda' how_many='234' vision='To train young techies' background='bg-[#1008318a] hidden lg:flex'/>
 
 
       <Handle name='Seed' address='Bamenda' how_many='234' vision='To train young techies' background='bg-[#eb8c086c]  hidden lg:flex'/>
-      
+       */}
 
       </div>
     </section>

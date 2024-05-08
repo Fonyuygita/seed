@@ -28,7 +28,7 @@ const AboutSection = () => {
   }, [router]);
 
   return (
-    <section className='h-screen w-screen px-4  text-white flex flex-col items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ced4de] to-[#ac690d]'  id='about'>
+    <section className=' h-screen w-screen px-4  text-white flex flex-col items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ced4de] to-[#ac690d]'  id='about'>
     <div id="aboutSection" className="flex flex-col md:flex-row items-center justify-center md:justify-between">
       <motion.div
         className="md:w-1/2 h-full p-4   flex items-start justify-center flex-col gap-6"
@@ -38,11 +38,15 @@ const AboutSection = () => {
   
        
       >
-        <h2 className="text-2xl lg:text-5xl font-bold mb-4 text-[#1b08088e] text-bold">About Us</h2>
-        <p className="text-lg text-gray-600">
+        <h2 className="text-2xl lg:text-5xl font-bold mb-4 text-black text-bold my-4">About Us</h2>
+        <p className="text-sm md:text-lg text-black mx-auto">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu nisi ac nunc ultricies aliquam. Nullam at dapibus mi. Nulla facilisi. Nulla fermentum, leo vel placerat aliquam, velit purus congue nisl, vitae tristique magna magna vel ex.
         </p>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded">
+
+        <p className="text-sm md:text-lg text-black mx-auto">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu nisi ac nunc ultricies aliquam. Nullam at dapibus mi. Nulla facilisi. Nulla fermentum, leo vel placerat aliquam, velit purus congue nisl, vitae tristique magna magna vel ex.
+        </p>
+        <button className="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#535ab8e3] to-[#100735f8] hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded">
           Read More
         </button>
       </motion.div>
