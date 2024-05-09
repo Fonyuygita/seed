@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
+
 const AboutSection = () => {
   const router = useRouter();
 
@@ -39,6 +40,8 @@ const AboutSection = () => {
        
       >
         <h2 className="text-2xl lg:text-5xl font-bold mb-4 text-black text-bold my-4">About Us</h2>
+      
+
         <p className="text-sm md:text-lg text-black mx-auto">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu nisi ac nunc ultricies aliquam. Nullam at dapibus mi. Nulla facilisi. Nulla fermentum, leo vel placerat aliquam, velit purus congue nisl, vitae tristique magna magna vel ex.
         </p>
@@ -56,7 +59,7 @@ const AboutSection = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.1 }}
       >
-        <div className="max-w-lg mx-auto bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ced4de] to-[#ac690d] rounded-full">
+        <div className="max-w-lg mx-auto bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ced4de] to-[#ac690d] rounded-full hidden md:flex">
           <Image src="/abt.png" alt="About Image" width={650} height={500} />
         </div>
       </motion.div>

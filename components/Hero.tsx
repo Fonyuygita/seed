@@ -47,7 +47,7 @@ const HeroSection = () => {
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-b from-[#13163f] to-[#0c345ca9] opacity-75 h-[100vh]"></div>
           <div className="relative px-8 py-12 text-white ]">
-            <div className="max-w-3xl mx-auto  flex items-center gap-5 justify-center flex-col mt-[9rem]">
+            <div className="max-w-3xl mx-auto  flex items-center gap-5 justify-center flex-col mt-[13rem] md:mt-[16rem]">
               <h2 className="text-2xl md:text-4xl font-bold font-PTSerif mb-4">
               {text.split("").map((letter, index) => (
             <motion.span
