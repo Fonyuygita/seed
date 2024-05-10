@@ -6,8 +6,8 @@ import Footer from '@/components/Footer';
 import Notification from '@/components/Notification';
 
 export const metadata: Metadata = {
-  title: 'SEED Software Company',
-  description: 'Travel UI/UX App for Camping',
+  title: 'SEED',
+  description: 'Skills Enhancement and Empowerment through Digitalization',
 }
 
 
