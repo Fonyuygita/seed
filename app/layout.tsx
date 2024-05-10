@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import './globals.css'
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Notification from '@/components/Notification';
 
 export const metadata: Metadata = {
   title: 'SEED Software Company',
@@ -25,6 +26,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <Notification/>
       </body>
     </html>
   )
