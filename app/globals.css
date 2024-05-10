@@ -27,7 +27,7 @@ body {
     @apply  border-green-50 bg-green-50 px-8 py-5 text-white
   }
   .btn_dark_green { 
-    @apply  bg-green-90 px-8 py-4 text-white transition-all hover:bg-black
+    @apply  bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ced4de] to-[#ac690d] px-8 py-4  transition-all hover:bg-black text-black 
   }
   .btn_dark_green_outline  { 
     @apply border-gray-20 bg-green-90 px-8 py-5 text-white
@@ -38,7 +38,7 @@ body {
   }
 
   .padding-container {
-    @apply px-6 lg:px-20 3xl:px-0;
+    @apply px-6 lg:px-20 3xl:px-20;
   }
 
   .flexCenter {
@@ -87,7 +87,7 @@ body {
   }
 
   .regular-14 {
-    @apply text-[14px] font-[400];
+    @apply text-[19px]
   }
 
   .medium-14 {

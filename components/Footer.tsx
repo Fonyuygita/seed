@@ -5,7 +5,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="flexCenter mb-24 mt-6 text-white bg-white">
+    <footer className="flexCenter py-5 mb-24 mt-6 text-white bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#535ab8e3] to-[#100735f8]">
       <div className="padding-container max-container flex w-full flex-col gap-14">
         <div className="flex flex-col items-start justify-center gap-[10%] md:flex-row">
           <Link href="/" className="mb-10">
@@ -33,10 +33,10 @@ const Footer = () => {
                     key={link.label}
                     className="flex gap-4 md:flex-col lg:flex-row"
                   >
-                    <p className="whitespace-nowrap">
+                    <p className="whitespace-nowrap tex">
                       {link.label}:
                     </p>
-                    <p className="medium-14 whitespace-nowrap text-blue-70">
+                    <p className="medium-14 whitespace-nowrap text-[rgb(156,144,144)]">
                       {link.value}
                     </p>
                   </Link>
@@ -48,7 +48,7 @@ const Footer = () => {
               <FooterColumn title={SOCIALS.title}>
                 <ul className="regular-14 flex gap-4 text-gray-30">
                   {SOCIALS.links.map((link) => (
-                    <Link href="/" key={link}>
+                    <Link href="/" key={link} className='bg-white rounded-full p-2'>
                       <Image src={link} alt="logo" width={24} height={24} />
                     </Link>
                   ))}
@@ -59,7 +59,7 @@ const Footer = () => {
         </div>
 
         <div className="border bg-gray-20" />
-        <p className="regular-14 w-full text-center text-gray-30">2023 Hilink | All rights reserved</p>
+        <p className="regular-14 w-full text-center text-gray-30">2024 SEED | All rights reserved</p>
       </div>
     </footer>
   )

@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description: 'Travel UI/UX App for Camping',
 }
 
+
+
+
 export default function RootLayout({
   children,
 }: {

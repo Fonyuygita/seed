@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
+import Header from './header';
 
 
 // Define the shape of your team member object
@@ -21,7 +22,7 @@ type TeamMember = {
 const teamMembers: TeamMember[] = [
   {
     name: 'Cheko Yohane',
-    role: 'CEO',
+    role: 'Chief Executive Officer',
     image: '/cheko.png', 
     description:"Entrepreneur and Business magnet",// Replace with path to your image
     twitterHandle: 'https://twitter.com/alicejohnson',
@@ -39,7 +40,8 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Fien Dora',
-    role: 'Lead Designer',
+    role: 'Chief Operations Engineer/Manager',
+    description:"Software Engineer/IOT and Computer Engineer",
     image: '/dora.png', // Replace with path to your image
     twitterHandle: 'https://twitter.com/carolwilliams',
     linkedInHandle: 'https://linkedin.com/in/carolwilliams',
@@ -59,8 +61,9 @@ const teamMembers: TeamMember[] = [
 const TeamSection = () => {
   return (
     <div className="container mx-auto px-4 mt-22  md:py-12 ">
-        <h2 className="text-2xl lg:text-5xl font-bold mb-4 text-black text-bold my-4 text-center">Our Team</h2>
-<p className='text-center w-[90%] md:w-[30%] mx-auto'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam et, voluptatum tempora iusto earum distinctio dolorem facilis </p>
+      <div className="border bg-black w-[80%] mx-auto" />
+<Header title='Our Team' description='Our SEED team is a powerhouse of talent, driven by a shared vision of technological excellence. We believe in the power of teamwork, fostering a collaborative environment where ideas flourish and creativity thrives'/>
+   
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
 
         {teamMembers.map((member, index) => (
@@ -75,6 +78,7 @@ const TeamSection = () => {
             <div className="flex flex-col items-center">
               <Image src={member.image} alt={member.name} width={200} height={230} className="rounded-full object-cover" />
               <h3 className="mt-4 font-bold text-[#f39741]">{member.name}</h3>
+            <span className='text-sm py-2 text-[#d2cccc]'>{member.role}</span>
              
               <p className='text-sm text-[#f5f5f5] text-bold text-center my-2'>{member.description}</p>
               <div className="flex mt-4 space-x-3">

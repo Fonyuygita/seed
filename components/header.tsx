@@ -1,60 +1,32 @@
-"use client"
+import Image from 'next/image';
+import React from 'react'
+import { Interface } from 'readline'
+``
 
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import type { FC } from 'react';
-import { InView } from 'react-intersection-observer';
-
-interface HeaderProps {
-  title: string;
-  description: string;
+interface headerProps {
+title:string;
+description:string;
 }
-
-const Header: FC<HeaderProps> = ({ title, description }) => {
-  const [isFloating, setIsFloating] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsFloating(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const headerVariants = {
-    float: {
-      x: ["-5%", "5%"], // Adjust the values to control the floating range
-      transition: {
-        x: {
-          duration: 2, // Duration of one cycle (left and right)
-          ease: "easeInOut",
-          repeat: InView,
-          repeatType: "mirror",
-        },
-      },
-    },
-  };
-
+const Header = ({title, description}:headerProps) => {
   return (
-    <motion.header
-      initial="float"
-      animate={isFloating ? 'float' : ''}
-      variants={headerVariants}
-      className={`fixed top-0 left-0 w-full bg-white shadow-md z-10 ${
-        isFloating ? 'pointer-events-none' : ''
-      }`}
-    >
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex justify-between items-center py-6 md:justify-start md:space-x-10'>
-          <div className='lg:w-0 lg:flex-1'>
-            <h1 className='text-2xl font-bold text-gray-900'>{title}</h1>
-            <p className='mt-2 text-sm text-gray-500'>{description}</p>
-          </div>
-        </div>
-      </div>
-    </motion.header>
-  );
-};
+    <div className="relative flex flex-col gap-6">
 
-export default Header;
+
+    <h2 className=" text-4xl lg:text-5xl font-bold mb-4 text-black text-bold my-4 text-center tracking-wide">{title}</h2>
+    <Image
+      src="/path.png"
+      className="w-[336px] h-[15px] absolute top-[23%] right-[15%] md:top-[35%] md:right-[43%] object-contain mx-auto"
+      width={336}
+      height={15}
+      alt='line'
+      
+    />
+    
+<p className='text-center w-[90%] md:w-[30%] mx-auto'>
+{description}
+</p>
+    </div>
+  )
+}
+``
+export default Header
