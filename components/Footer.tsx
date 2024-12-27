@@ -1,82 +1,41 @@
-import { FOOTER_CONTACT_INFO, FOOTER_LINKS, SOCIALS } from '@/constants'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+import Image from "next/image";
 
-const Footer = () => {
+function Footer() {
   return (
-    <footer className="flexCenter py-5 mb-24 mt-6 text-white bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#535ab8e3] to-[#100735f8]">
-      <div className="padding-container max-container flex w-full flex-col gap-14">
-        <div className="flex flex-col items-start justify-center gap-[10%] md:flex-row">
-          <Link href="/" className="mb-10">
-            <Image src="/seed.png" alt="logo" width={74} height={29}/>
-          </Link>
-
-          <div className='flex flex-wrap gap-10 sm:justify-between md:flex-1'>
-            {FOOTER_LINKS.map((columns) => (
-              <FooterColumn title={columns.title}>
-                <ul className="regular-14 flex flex-col gap-4 text-gray-30">
-                  {columns.links.map((link) => (
-                    <Link href="/" key={link}>
-                      {link}
-                    </Link>
-                  ))}
-                </ul>
-              </FooterColumn>
-            ))}
-
-            <div className="flex flex-col gap-5">
-              <FooterColumn title={FOOTER_CONTACT_INFO.title}>
-                {FOOTER_CONTACT_INFO.links.map((link) => (
-                  <Link
-                    href="/"
-                    key={link.label}
-                    className="flex gap-4 md:flex-col lg:flex-row"
-                  >
-                    <p className="whitespace-nowrap tex">
-                      {link.label}:
-                    </p>
-                    <p className="medium-14 whitespace-nowrap text-[rgb(156,144,144)]">
-                      {link.value}
-                    </p>
-                  </Link>
-                ))}
-              </FooterColumn>
-            </div>
-
-            <div className="flex flex-col gap-5">
-              <FooterColumn title={SOCIALS.title}>
-                <ul className="regular-14 flex gap-4 text-gray-30">
-                  {SOCIALS.links.map((link) => (
-                    <Link href="/" key={link} className='bg-white rounded-full p-2'>
-                      <Image src={link} alt="logo" width={24} height={24} />
-                    </Link>
-                  ))}
-                </ul>
-              </FooterColumn>
-            </div>
-          </div>
-        </div>
-
-        <div className="border bg-gray-20" />
-        <p className="regular-14 w-full text-center text-gray-30">2024 SEED | All rights reserved</p>
+    <footer className="sm:px-16 py-4 px-8 flex justify-between items-center gap-2 flex-wrap bg-[#161921]">
+      <p className="text-base font-bold text-white">@2023 EpicAnimeVault</p>
+      <Image
+        src="./logo.svg"
+        alt="logo"
+        width={47}
+        height={44}
+        className="object-contain"
+      />
+      <div className="flex items-center gap-6">
+        <Image
+          src="./tiktok.svg"
+          alt="logo"
+          width={19}
+          height={19}
+          className="object-contain"
+        />
+        <Image
+          src="./instagram.svg"
+          alt="logo"
+          width={19}
+          height={19}
+          className="object-contain"
+        />
+        <Image
+          src="./twitter.svg"
+          alt="logo"
+          width={19}
+          height={19}
+          className="object-contain"
+        />
       </div>
     </footer>
-  )
+  );
 }
 
-type FooterColumnProps = {
-  title: string;
-  children: React.ReactNode;
-}
-
-const FooterColumn = ({ title, children }: FooterColumnProps) => {
-  return (
-    <div className="flex flex-col gap-5">
-      <h4 className="bold-18 whitespace-nowrap">{title}</h4>
-      {children}
-    </div>
-  )
-}
-
-export default Footer
+export default Footer;

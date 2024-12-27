@@ -1,33 +1,32 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
+import { DM_Sans } from "next/font/google";
 
-import './globals.css'
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import Notification from '@/components/Notification';
+import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
+
+import "./globals.css";
+
+const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'SEED',
-  description: 'Skills Enhancement and Empowerment through Digitalization',
-}
-
-
-
+  title: "Anime Vault",
+  description: "Your favorite anime, all in one place.",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body>
-        <Navbar />
-        <main className="relative overflow-hidden">
+      <body className={dmSans.className}>
+        <main className="max-w-7xl mx-auto bg-[#0F1117]">
+          <Hero />
           {children}
+          <Footer />
         </main>
-        <Footer />
-        <Notification/>
       </body>
     </html>
-  )
+  );
 }
