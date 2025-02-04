@@ -1,17 +1,33 @@
-import Image from 'next/image'
-import React from 'react'
+// src/app/(dashboard)/page.tsx
+import { Suspense } from 'react'
+import { UploadForm } from '@/components/pdf/upload-form'
+import { QAList } from '@/components/qa/qa-list'
+import { ThemeToggle } from '@/components/ui/theme-toggle'
 
-interface Props {
-    
-}
-
-const page = (props: Props) => {
+export default function DashboardPage() {
     return (
-        <div className='w-screen h-screen flex flex-col items-center justify-center'>
-            <Image src="/man.png" width={200} height={230} alt='man'/>
-            <h1>Site On construction🤣</h1>
+        <div className="min-h-screen bg-background">
+            <header className="border-b">
+                <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+                    <h1 className="text-2xl font-bold">PDF Q&A Generator</h1>
+                    <ThemeToggle />
+                </div>
+            </header>
+
+            <main className="container mx-auto px-4 py-8">
+                <div className="grid gap-8 md:grid-cols-2">
+                    <div>
+                        <UploadForm />
+                    </div>
+
+                    <div>
+                        <Suspense fallback={<div>Loading Q&A pairs...</div>}>
+                            <QAList />
+                        </Suspense>
+                    </div>
+                </div>
+            </main>
         </div>
     )
 }
 
-export default page
