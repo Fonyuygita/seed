@@ -1,11 +1,11 @@
-// src/lib/actions/pdf.ts
 "use server";
 
 import { PDFDocument } from "pdf-lib";
 import { revalidatePath } from "next/cache";
-import { addDocuments } from "../db/vector-store";
+import { addDocuments, searchSimilarDocuments } from "../db/vector-store";
 import { generateQAPairs } from "@/lib/ai/question-chain";
 import { ProcessError } from "@/lib/utils";
+import pdfParse from "pdf-parse"; // Default import
 
 // Process the uploaded PDF
 export async function processPDFUpload(formData: FormData) {
@@ -15,35 +15,22 @@ export async function processPDFUpload(formData: FormData) {
       throw new ProcessError("No file provided");
     }
 
-    // Read PDF and extract text
-    const buffer = await file.arrayBuffer();
-    const pdfDoc = await PDFDocument.load(buffer);
-    const pages = await pdfDoc.getPages();
+    // Convert File to Buffer
+    const buffer = Buffer.from(await file.arrayBuffer());
 
-    // Extract text from all pages
-    const texts = await Promise.all(
-      pages.map(async (page) => {
-        const content = await page.getTextContent();
-        return content.items
-          .map((item) => item.str)
-          .join(" ")
-          .trim();
-      })
-    );
+    // Parse PDF
+    const pdfData = await pdfParse(buffer);
+    const texts = [pdfData.text]; // pdf-parse extracts text directly
 
-    // Store embeddings in ChromaDB
+    // Rest of your existing code remains the same
     await addDocuments(texts);
-
-    // Generate Q&A pairs
     const qaPairs = await generateQAPairs(texts.join("\n"));
-
-    revalidatePath("/dashboard");
 
     return {
       success: true,
       qaPairs,
       stats: {
-        pageCount: pages.length,
+        pageCount: pdfData.numpages,
         textLength: texts.join("\n").length,
       },
     };

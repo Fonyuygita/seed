@@ -1,7 +1,9 @@
+
+"use client"
 // src/components/layout/header.tsx
 import { ThemeToggle } from '../ui/theme-toggle'
 import { Button } from '../ui/button'
-import { Github } from 'lucide-react'
+import { BatteryCharging } from 'lucide-react'
 import Link from 'next/link'
 
 export function Header() {
@@ -19,7 +21,7 @@ export function Header() {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <Github className="h-4 w-4" />
+                            <BatteryCharging className="h-4 w-4" />
                         </Link>
                     </Button>
                     <ThemeToggle />
